@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
+        //activity change Profile where can we log in or register
         btProfile.setOnClickListener{
             startProfile()
         }
