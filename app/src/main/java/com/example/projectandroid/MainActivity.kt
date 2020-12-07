@@ -7,25 +7,12 @@ import android.widget.ImageButton
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btProfile = findViewById<ImageButton>(R.id.img_butt1)
-
-
-
-        //activity change Profile where can we log in or register
-        btProfile.setOnClickListener{
-            startProfile()
-        }
-
-
     }
 
-    private fun startProfile() {
-        val intent = Intent(this, Profile::class.java)
-        startActivity(intent)
 
-    }
 
 }
