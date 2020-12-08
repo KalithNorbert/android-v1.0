@@ -6,7 +6,7 @@
     android:background="@android:color/holo_blue_bright"
     tools:context=".Restaurants">
 
-  
+
 
 
     <ImageView
