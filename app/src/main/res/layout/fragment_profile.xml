@@ -81,7 +81,7 @@
 
 
             <Button
-                android:id="@+id/Update"
+                android:id="@+id/btn_update_frag"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_blue_dark"
@@ -107,10 +107,6 @@
 
 
         </LinearLayout>
-
-
-
-
     </RelativeLayout>
 
 
