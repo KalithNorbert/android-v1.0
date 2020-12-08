@@ -4,84 +4,73 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_blue_bright"
-    tools:context=".Profile">
-
-    <!-- TODO: Update blank fragment layout -->
-
+    tools:context=".Change">
 
     <RelativeLayout
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
+        android:padding="30dp"
         >
 
-        <ImageView
-            android:id="@+id/img_view_profile"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/et1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/back1"/>
-
-        <TextView
-            android:id="@+id/tv1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/img_view_profile"
-            android:padding="5dp"
             android:textSize="20sp"
             android:textColor="@android:color/black"
             android:layout_margin="10dp"
 
-            android:text="Nev"/>
+            android:hint="Name:"/>
 
-        <TextView
-            android:id="@+id/tv2"
+        <EditText
+            android:id="@+id/et2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv1"
-            android:padding="5dp"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:layout_margin="10dp"
-            android:text="e-mail"/>
-
-        <TextView
-            android:id="@+id/tv3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv2"
-            android:padding="5dp"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:layout_margin="10dp"
-            android:text="Telefon szam"/>
-
-        <TextView
-            android:id="@+id/tv4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv3"
-            android:padding="5dp"
+            android:layout_below="@+id/et1"
+            android:padding="10dp"
             android:textSize="20sp"
             android:textColor="@android:color/black"
             android:layout_margin="10dp"
-            android:text="Lakhely"/>
 
+            android:hint="Email:"/>
 
+        <EditText
+            android:id="@+id/et3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et2"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:layout_margin="10dp"
+            android:textColor="@android:color/black"
 
+            android:hint="Telephone number:"/>
+
+        <EditText
+            android:id="@+id/et4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et3"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:layout_margin="10dp"
+            android:textColor="@android:color/black"
+
+            android:hint="Location:"/>
 
         <LinearLayout
-            android:id="@+id/linear2"
+            android:id="@+id/linear3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv4"
+            android:layout_below="@+id/et4"
+            android:gravity="center_vertical"
             android:padding="10dp">
 
 
             <Button
-                android:id="@+id/btn_update_frag"
+                android:id="@+id/Update_data"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_blue_dark"
@@ -93,23 +82,18 @@
                 />
 
             <Button
-                android:id="@+id/btn_change"
+                android:id="@+id/btn_back"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_blue_dark"
-                android:text="Change Pic"
+                android:text="Back "
                 android:layout_weight="1"
                 android:padding="10dp"
                 android:layout_margin="10dp"
 
                 />
-
-
-
         </LinearLayout>
     </RelativeLayout>
-
-
 
 
 </FrameLayout>

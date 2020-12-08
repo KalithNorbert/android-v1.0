@@ -17,15 +17,19 @@ class Update : Fragment() {
         // Inflate the layout for this fragment
         val v =  inflater.inflate(R.layout.fragment_update, container, false)
 
-        val btn_back = v.findViewById<Button>(R.id.btn_back)
+        val btnBack = v.findViewById<Button>(R.id.btn_back)
+        val btnUpdate = v.findViewById<Button>(R.id.btn_update)
 
 
-        btn_back.setOnClickListener {
 
-            val UpdateFragment = Profile()
+
+
+        btnBack.setOnClickListener {
+
+            val profile = Profile()
             val manager = fragmentManager
             val transaction = manager?.beginTransaction()
-            transaction?.replace(com.example.projectandroid.R.id.fragment,UpdateFragment)
+            transaction?.replace(com.example.projectandroid.R.id.fragment,profile)
             transaction?.addToBackStack(null)
             transaction?.commit()
         }

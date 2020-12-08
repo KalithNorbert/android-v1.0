@@ -11,8 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="30dp"
-
-
         >
 
         <EditText
@@ -72,7 +70,7 @@
 
 
         <Button
-            android:id="@+id/Update_data"
+            android:id="@+id/btn_update"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/holo_blue_dark"

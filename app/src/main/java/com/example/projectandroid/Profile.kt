@@ -20,14 +20,22 @@ class Profile : Fragment() {
     ): View? {
 
         val v = inflater.inflate(R.layout.fragment_profile, container, false)
-        val vv = inflater.inflate(R.layout.activity_main, container, false)
 
         val btn_update = v.findViewById<Button>(R.id.btn_update_frag)
+        val btn_change = v.findViewById<Button>(R.id.btn_change)
 
 
         btn_update.setOnClickListener {
+            val UpdateFragment1 = Update()
+            val manager = fragmentManager
+            val transaction = manager?.beginTransaction()
+            transaction?.replace(com.example.projectandroid.R.id.fragment,UpdateFragment1)
+            transaction?.addToBackStack(null)
+            transaction?.commit()
+        }
 
-            val UpdateFragment = Update()
+        btn_change.setOnClickListener {
+            val UpdateFragment = Change()
             val manager = fragmentManager
             val transaction = manager?.beginTransaction()
             transaction?.replace(com.example.projectandroid.R.id.fragment,UpdateFragment)
