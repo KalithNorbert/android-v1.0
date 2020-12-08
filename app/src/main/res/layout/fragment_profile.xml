@@ -3,46 +3,110 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_bright"
     tools:context=".Profile">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/hello_blank_fragment" />
 
     <RelativeLayout
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity"
+
         >
+
+        <ImageView
+            android:id="@+id/img_view_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/back1"/>
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_view_profile"
+            android:padding="5dp"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:layout_margin="10dp"
+
+            android:text="Nev"/>
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv1"
+            android:padding="5dp"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_margin="10dp"
+            android:text="e-mail"/>
+
+        <TextView
+            android:id="@+id/tv3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv2"
+            android:padding="5dp"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_margin="10dp"
+            android:text="Telefon szam"/>
+
+        <TextView
+            android:id="@+id/tv4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv3"
+            android:padding="5dp"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:layout_margin="10dp"
+            android:text="Lakhely"/>
+
+
 
 
         <LinearLayout
+            android:id="@+id/linear2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:background="@android:color/holo_blue_dark"
-            >
+            android:layout_below="@+id/tv4"
+            android:padding="10dp">
 
 
-            <ImageButton
-                android:id="@+id/img_butt"
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/Update"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_blue_dark"
-                android:minWidth="50dp"
-                android:minHeight="50dp"
-                android:src="@drawable/restaurant_btn"
+                android:text="Update Profile"
+                android:padding="10dp"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
+
                 />
 
-            <ImageButton
-                android:id="@+id/img_butt1"
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/Change"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
                 android:background="@android:color/holo_blue_dark"
-                android:minWidth="50dp"
-                android:minHeight="50dp"
-                android:src="@drawable/profile_btn"
+                android:text="Change Pic"
                 android:layout_weight="1"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+
                 />
+
 
 
         </LinearLayout>
@@ -50,8 +114,9 @@
 
 
 
-
     </RelativeLayout>
+
+
 
 
 </FrameLayout>

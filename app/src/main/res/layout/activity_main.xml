@@ -4,40 +4,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_bright"
     tools:context=".MainActivity"
     >
 
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:background="@android:color/holo_blue_dark"
-        >
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
 
-
-        <ImageButton
-            android:id="@+id/img_butt"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/holo_blue_dark"
-            android:minWidth="50dp"
-            android:minHeight="50dp"
-            android:src="@drawable/restaurant_btn"
-            android:layout_weight="1"
-            />
+            android:background="@android:color/holo_blue_light"
+            android:padding="10dp">
 
-        <ImageButton
-            android:id="@+id/img_butt1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:background="@android:color/holo_blue_dark"
-            android:minWidth="50dp"
-            android:minHeight="50dp"
-            android:src="@drawable/profile_btn"
-            android:layout_weight="1"
-            />
+
+            <ImageButton
+                android:id="@+id/img_butt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/holo_blue_dark"
+                android:layout_margin="5dp"
+                android:minWidth="50dp"
+                android:minHeight="50dp"
+
+
+                android:src="@drawable/restaurant_btn" />
+
+
+            <ImageButton
+                android:id="@+id/img_butt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+
+                android:background="@android:color/holo_blue_dark"
+                android:minWidth="50dp"
+                android:minHeight="50dp"
+                android:src="@drawable/profile_btn" />
+
+
+        </LinearLayout>
+
+        <fragment
+            android:id="@+id/fragment"
+            android:name="com.example.projectandroid.Restaurants"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
 
 
     </LinearLayout>
