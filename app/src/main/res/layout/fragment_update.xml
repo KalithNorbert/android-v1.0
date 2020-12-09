@@ -13,16 +13,16 @@
         android:padding="30dp"
         >
 
-        <EditText
-        android:id="@+id/et1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:textSize="20sp"
-        android:textColor="@android:color/black"
-        android:layout_margin="10dp"
+         <EditText
+            android:id="@+id/et1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:layout_margin="10dp"
 
-        android:hint="Name:"/>
+            android:hint="Name:"/>
 
         <EditText
             android:id="@+id/et2"
@@ -34,7 +34,7 @@
             android:textColor="@android:color/black"
             android:layout_margin="10dp"
 
-            android:hint="Email:"/>
+            android:hint="Age:"/>
 
         <EditText
             android:id="@+id/et3"
@@ -43,10 +43,10 @@
             android:layout_below="@+id/et2"
             android:padding="10dp"
             android:textSize="20sp"
-            android:layout_margin="10dp"
             android:textColor="@android:color/black"
+            android:layout_margin="10dp"
 
-            android:hint="Telephone number:"/>
+            android:hint="Email:"/>
 
         <EditText
             android:id="@+id/et4"
@@ -58,13 +58,25 @@
             android:layout_margin="10dp"
             android:textColor="@android:color/black"
 
+            android:hint="Telephone number:"/>
+
+        <EditText
+            android:id="@+id/et5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et4"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:layout_margin="10dp"
+            android:textColor="@android:color/black"
+
             android:hint="Location:"/>
 
         <LinearLayout
             android:id="@+id/linear3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/et4"
+            android:layout_below="@+id/et5"
             android:gravity="center_vertical"
             android:padding="10dp">
 

@@ -42,10 +42,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv1"
             android:padding="5dp"
-            android:textColor="@android:color/black"
             android:textSize="20sp"
+            android:textColor="@android:color/black"
             android:layout_margin="10dp"
-            android:text="e-mail"/>
+
+            android:text="Age:"/>
 
         <TextView
             android:id="@+id/tv3"
@@ -56,13 +57,24 @@
             android:textColor="@android:color/black"
             android:textSize="20sp"
             android:layout_margin="10dp"
-            android:text="Telefon szam"/>
+            android:text="e-mail"/>
 
         <TextView
             android:id="@+id/tv4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv3"
+            android:padding="5dp"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_margin="10dp"
+            android:text="Telefon szam"/>
+
+        <TextView
+            android:id="@+id/tv5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv4"
             android:padding="5dp"
             android:textSize="20sp"
             android:textColor="@android:color/black"
@@ -76,7 +88,7 @@
             android:id="@+id/linear2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv4"
+            android:layout_below="@+id/tv5"
             android:padding="10dp">
 
 
