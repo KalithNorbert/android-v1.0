@@ -3,6 +3,7 @@ package com.example.projectandroid
 class User {
 
 
+    var id : Int = 0
     var name : String = ""
     var age : Int = 0
     var location : String = ""
@@ -15,6 +16,8 @@ class User {
         this.location = location
         this.email = email
         this.telephone = telephone
+    }
+    constructor(){
 
     }
 }

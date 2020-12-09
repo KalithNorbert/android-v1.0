@@ -22,8 +22,6 @@ class Update : Fragment() {
         val btnBack = v.findViewById<Button>(R.id.btn_back)
         val btnUpdate = v.findViewById<Button>(R.id.btn_update)
 
-
-
         btnUpdate.setOnClickListener {
             if (et1.text.toString().isNotEmpty() &&
                 et2.text.toString().isNotEmpty() &&
@@ -31,19 +29,15 @@ class Update : Fragment() {
                 et4.text.toString().isNotEmpty() &&
                 et5.text.toString().isNotEmpty()
             ){
-
-                val user = User(et1.text.toString(),et2.text.toString().toInt(),et3.text.toString(),et4.text.toString(),et5.text.toString() )
                 val db = context?.let { DataBaseHandler(context = it) }
+                db?.deleteData()
+                val user = User(et1.text.toString(),et2.text.toString().toInt(),et3.text.toString(),et4.text.toString(),et5.text.toString() )
                     db?.insertData(user)
-
-
             }else{
                 Toast.makeText(context,"Please complete all Data's ",Toast.LENGTH_SHORT).show()
             }
 
         }
-
-
 
         btnBack.setOnClickListener {
 
