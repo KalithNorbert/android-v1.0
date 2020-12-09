@@ -36,15 +36,21 @@ class Profile : Fragment() {
 
         val data = db?.readData()
 
-        tv11.text = "Name: "
+
         if (data != null)
         {
             for (i in 0..(data.size -1)) {
+
                 tv11.append("Name: "+ data.get(i).name)
+                tv12.append("Age: "+ data.get(i).age)
+                tv13.append("E-mail: "+ data.get(i).email)
+                tv14.append("Number: "+ data.get(i).telephone)
+                tv15.append("Address: "+ data.get(i).location)
             }
+
         }
 
-        if (tv11.text == "Name: ")
+        if (tv11.text == "Name:")
         {
             Toast.makeText(context,"Please insert data first",Toast.LENGTH_SHORT).show()
         }

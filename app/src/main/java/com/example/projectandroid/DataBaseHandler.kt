@@ -66,7 +66,7 @@ class DataBaseHandler(val context: Context) :
         if(result.moveToFirst()){
             do{
                 val user = User()
-                //user.id = result.getString(result.getColumnIndex(COL_ID)).toInt()
+                user.id = result.getString(result.getColumnIndex(COL_ID)).toInt()
                 user.name = result.getString(result.getColumnIndex(COL_NAME))
                 user.age = result.getString(result.getColumnIndex(COL_AGE)).toInt()
                 user.location = result.getString(result.getColumnIndex(COL_LOCATION))
@@ -83,12 +83,8 @@ class DataBaseHandler(val context: Context) :
 
     fun deleteData(){
         val db = this.writableDatabase
-
-        db.delete(TABLE_NAME,COL_ID+"=?", arrayOf(1.toString()))
-        Toast.makeText(context,"delete ",Toast.LENGTH_SHORT).show()
-
-        db.close()
-
+        val query = "DELETE FROM " +TABLE_NAME
+        db.execSQL(query)
     }
 
 }
