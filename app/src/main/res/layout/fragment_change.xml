@@ -1,99 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_blue_bright"
     tools:context=".Change">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
 
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="30dp"
-        >
+        android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/et1"
-            android:layout_width="match_parent"
+
+        <ImageView
+            android:id="@+id/img_view_change"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="43dp" />
+
+        <Button
+            android:id="@+id/btn_camera"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:textSize="20sp"
-            android:textColor="@android:color/black"
-            android:layout_margin="10dp"
+            android:text="Camera"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="415dp" />
 
-            android:hint="Name:"/>
-
-        <EditText
-            android:id="@+id/et2"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/btn_gallery"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/et1"
-            android:padding="10dp"
-            android:textSize="20sp"
-            android:textColor="@android:color/black"
-            android:layout_margin="10dp"
-
-            android:hint="Email:"/>
-
-        <EditText
-            android:id="@+id/et3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/et2"
-            android:padding="10dp"
-            android:textSize="20sp"
-            android:layout_margin="10dp"
-            android:textColor="@android:color/black"
-
-            android:hint="Telephone number:"/>
-
-        <EditText
-            android:id="@+id/et4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/et3"
-            android:padding="10dp"
-            android:textSize="20sp"
-            android:layout_margin="10dp"
-            android:textColor="@android:color/black"
-
-            android:hint="Location:"/>
-
-        <LinearLayout
-            android:id="@+id/linear3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/et4"
-            android:gravity="center_vertical"
-            android:padding="10dp">
+            android:layout_marginEnd="16dp"
+            android:text="Gallery"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="423dp" />
 
 
-            <Button
-                android:id="@+id/Update_data"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/holo_blue_dark"
-                android:text="Update Profile"
-                android:padding="10dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-
-                />
-
-            <Button
-                android:id="@+id/btn_back"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/holo_blue_dark"
-                android:text="Back "
-                android:layout_weight="1"
-                android:padding="10dp"
-                android:layout_margin="10dp"
-
-                />
-        </LinearLayout>
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </FrameLayout>

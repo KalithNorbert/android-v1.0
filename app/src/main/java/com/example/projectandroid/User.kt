@@ -2,6 +2,7 @@ package com.example.projectandroid
 
 class User {
 
+    // a USER objektum strukturajanak meghatarozasara
 
     var id : Int = 0
     var name : String = ""

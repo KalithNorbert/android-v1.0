@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
 
+
 val DATABASE_NAME = "MyDB"
 val TABLE_NAME = "Users"
 val COL_NAME = "name"
@@ -19,9 +20,8 @@ val COL_ID = "id"
 class DataBaseHandler(val context: Context) :
     SQLiteOpenHelper(context, DATABASE_NAME,null, 1){
 
-
     override fun onCreate(db: SQLiteDatabase?) {
-
+        //letrehozashoz szukseges lekerdezes
         val createTable = "CREATE TABLE " + TABLE_NAME +" (" +
                 COL_ID +" INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COL_NAME + " VARCHAR(256)," +
@@ -29,17 +29,18 @@ class DataBaseHandler(val context: Context) :
                 COL_EMAIL + " VARCHAR(256)," +
                 COL_TELEPHONE + " VARCHAR(256)," +
                 COL_LOCATION + " VARCHAR(256))";
-
         db?.execSQL(createTable)
 
     }
 
+    //uj verzio eseten
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         db.execSQL("DROP TABLE IF EXISTS $TABLE_NAME")
         onCreate(db)
     }
 
     fun insertData(user : User){
+        //ket fele database objektum van : writableDatabase, readableDatabase
         val db = this.writableDatabase
         val cv = ContentValues()
         cv.put(COL_NAME,user.name)
@@ -47,15 +48,12 @@ class DataBaseHandler(val context: Context) :
         cv.put(COL_EMAIL,user.email)
         cv.put(COL_TELEPHONE,user.telephone)
         cv.put(COL_LOCATION,user.location)
+        //tablanev, nincs szukseg null oszlopra, es h mit
         val  result =  db?.insert(TABLE_NAME, null,cv)
-
-
-        if(result == (-1).toLong())
+        if(result == (-1).toLong())//ha rowID -1 akkro hiba tortent
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show()
         else
             Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
-
-
     }
 
     fun readData() : MutableList<User>{

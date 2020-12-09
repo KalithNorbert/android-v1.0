@@ -16,13 +16,12 @@ class Update : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val v =  inflater.inflate(R.layout.fragment_update, container, false)
-
         val btnBack = v.findViewById<Button>(R.id.btn_back)
         val btnUpdate = v.findViewById<Button>(R.id.btn_update)
 
         btnUpdate.setOnClickListener {
+            //ha nem uress akkor beilleszt
             if (et1.text.toString().isNotEmpty() &&
                 et2.text.toString().isNotEmpty() &&
                 et3.text.toString().isNotEmpty() &&
@@ -30,10 +29,10 @@ class Update : Fragment() {
                 et5.text.toString().isNotEmpty()
             ){
                 val db = context?.let { DataBaseHandler(context = it) }
-                db?.deleteData()
+                db?.deleteData()//delete data
                 val user = User(et1.text.toString(),et2.text.toString().toInt(),et3.text.toString(),et4.text.toString(),et5.text.toString() )
-                db?.insertData(user)
-                et1.text.clear()
+                db?.insertData(user)//insert user data's to database
+                et1.text.clear()//editText urites
                 et2.text.clear()
                 et3.text.clear()
                 et4.text.clear()
@@ -45,7 +44,7 @@ class Update : Fragment() {
         }
 
         btnBack.setOnClickListener {
-
+            //profile visszahivas
             val profile = Profile()
             val manager = fragmentManager
             val transaction = manager?.beginTransaction()
