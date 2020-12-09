@@ -40,12 +40,11 @@ class Profile : Fragment() {
         if (data != null)
         {
             for (i in 0..(data.size -1)) {
-
-                tv11.append("Name: "+ data.get(i).name)
-                tv12.append("Age: "+ data.get(i).age)
-                tv13.append("E-mail: "+ data.get(i).email)
-                tv14.append("Number: "+ data.get(i).telephone)
-                tv15.append("Address: "+ data.get(i).location)
+                tv11.text = "Name: "+ data.get(i).name
+                tv12.text = "Age: "+ data.get(i).age
+                tv13.text = "Number: "+ data.get(i).email
+                tv14.text = "Address: "+ data.get(i).telephone
+                tv15.text = "E-mail: "+ data.get(i).location
             }
 
         }

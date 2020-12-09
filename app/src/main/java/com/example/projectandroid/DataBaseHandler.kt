@@ -26,9 +26,9 @@ class DataBaseHandler(val context: Context) :
                 COL_ID +" INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COL_NAME + " VARCHAR(256)," +
                 COL_AGE + " INTEGER," +
-                COL_LOCATION + " VARCHAR(256)," +
                 COL_EMAIL + " VARCHAR(256)," +
-                COL_TELEPHONE + " VARCHAR(256))";
+                COL_TELEPHONE + " VARCHAR(256)," +
+                COL_LOCATION + " VARCHAR(256))";
 
         db?.execSQL(createTable)
 
@@ -44,9 +44,9 @@ class DataBaseHandler(val context: Context) :
         val cv = ContentValues()
         cv.put(COL_NAME,user.name)
         cv.put(COL_AGE,user.age)
-        cv.put(COL_LOCATION,user.location)
         cv.put(COL_EMAIL,user.email)
         cv.put(COL_TELEPHONE,user.telephone)
+        cv.put(COL_LOCATION,user.location)
         val  result =  db?.insert(TABLE_NAME, null,cv)
 
 
@@ -69,9 +69,9 @@ class DataBaseHandler(val context: Context) :
                 user.id = result.getString(result.getColumnIndex(COL_ID)).toInt()
                 user.name = result.getString(result.getColumnIndex(COL_NAME))
                 user.age = result.getString(result.getColumnIndex(COL_AGE)).toInt()
-                user.location = result.getString(result.getColumnIndex(COL_LOCATION))
-                user.email = result.getString(result.getColumnIndex(COL_EMAIL))
+                user.email  = result.getString(result.getColumnIndex(COL_EMAIL))
                 user.telephone = result.getString(result.getColumnIndex(COL_TELEPHONE))
+                user.location = result.getString(result.getColumnIndex(COL_LOCATION))
                 list.add(user)
             }while (result.moveToNext())
             }

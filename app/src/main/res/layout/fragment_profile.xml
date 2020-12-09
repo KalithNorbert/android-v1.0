@@ -25,6 +25,7 @@
 
         <TextView
             android:id="@+id/tv1"
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/img_view_profile"
@@ -42,6 +43,7 @@
             android:textSize="15sp"
             android:textColor="@android:color/black"
             android:layout_margin="10dp"
+            android:gravity="center"
 
             android:text="Age:"/>
 
@@ -53,7 +55,9 @@
             android:textColor="@android:color/black"
             android:textSize="15sp"
             android:layout_margin="10dp"
-            android:text="E-mail:"/>
+            android:gravity="center"
+
+            android:text="Number:"/>
 
         <TextView
             android:id="@+id/tv4"
@@ -63,7 +67,9 @@
             android:textColor="@android:color/black"
             android:textSize="15sp"
             android:layout_margin="10dp"
-            android:text="Number:"/>
+            android:gravity="center"
+
+            android:text="Address:"/>
 
         <TextView
             android:id="@+id/tv5"
@@ -73,7 +79,8 @@
             android:textSize="15sp"
             android:textColor="@android:color/black"
             android:layout_margin="10dp"
-            android:text="Address:"/>
+            android:gravity="center"
+            android:text="E-mail:"/>
 
 
 

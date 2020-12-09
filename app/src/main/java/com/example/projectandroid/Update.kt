@@ -32,7 +32,12 @@ class Update : Fragment() {
                 val db = context?.let { DataBaseHandler(context = it) }
                 db?.deleteData()
                 val user = User(et1.text.toString(),et2.text.toString().toInt(),et3.text.toString(),et4.text.toString(),et5.text.toString() )
-                    db?.insertData(user)
+                db?.insertData(user)
+                et1.text.clear()
+                et2.text.clear()
+                et3.text.clear()
+                et4.text.clear()
+                et5.text.clear()
             }else{
                 Toast.makeText(context,"Please complete all Data's ",Toast.LENGTH_SHORT).show()
             }
