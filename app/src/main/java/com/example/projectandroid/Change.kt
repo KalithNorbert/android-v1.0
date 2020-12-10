@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import kotlinx.android.synthetic.main.fragment_change.*
+import kotlinx.android.synthetic.main.fragment_update.*
 
 class Change : Fragment() {
 
@@ -22,6 +23,7 @@ class Change : Fragment() {
 
         val btnCamera = view.findViewById<Button>(R.id.btn_camera)
         val btnGallery = view.findViewById<Button>(R.id.btn_gallery)
+        val btnChange = view.findViewById<Button>(R.id.btn_change)
 
         btnCamera.setOnClickListener{
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
@@ -34,6 +36,7 @@ class Change : Fragment() {
             startActivityForResult(intent,456)
         }
 
+
         return view
     }
 
@@ -42,6 +45,7 @@ class Change : Fragment() {
         if(requestCode == 123){
             val bmp = data?.extras?.get("data") as Bitmap
             img_view_change.setImageBitmap(bmp)
+
         }else if (requestCode == 456){
             img_view_change.setImageURI(data?.data)
         }

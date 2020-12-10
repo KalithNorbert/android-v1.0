@@ -1,5 +1,6 @@
 package com.example.projectandroid
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -29,8 +30,16 @@ class Update : Fragment() {
                 et5.text.toString().isNotEmpty()
             ){
                 val db = context?.let { DataBaseHandler(context = it) }
+                val data = db?.readData()
+                var img = ""
+                if (data != null)
+                {
+                    for (i in 0..(data.size -1)) {
+                        img = data.get(i).image
+                    }
+                }
                 db?.deleteData()//delete data
-                val user = User(et1.text.toString(),et2.text.toString().toInt(),et3.text.toString(),et4.text.toString(),et5.text.toString() )
+                val user = User(et1.text.toString(),et2.text.toString().toInt(),et3.text.toString(),et4.text.toString(),et5.text.toString(),img )
                 db?.insertData(user)//insert user data's to database
                 et1.text.clear()//editText urites
                 et2.text.clear()

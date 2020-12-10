@@ -14,30 +14,41 @@ val COL_AGE = "age"
 val COL_LOCATION = "location"
 val COL_EMAIL = "email"
 val COL_TELEPHONE = "telephone"
+val COL_IMAGE = "image"
 val COL_ID = "id"
 
 
 class DataBaseHandler(val context: Context) :
-    SQLiteOpenHelper(context, DATABASE_NAME,null, 1){
+    SQLiteOpenHelper(context, DATABASE_NAME,null, 2){
 
     override fun onCreate(db: SQLiteDatabase?) {
-        //letrehozashoz szukseges lekerdezes
+        //letrehozashoz szukseges sql parancs
         val createTable = "CREATE TABLE " + TABLE_NAME +" (" +
                 COL_ID +" INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COL_NAME + " VARCHAR(256)," +
                 COL_AGE + " INTEGER," +
                 COL_EMAIL + " VARCHAR(256)," +
                 COL_TELEPHONE + " VARCHAR(256)," +
-                COL_LOCATION + " VARCHAR(256))";
+                COL_LOCATION + " VARCHAR(256)," +
+                COL_IMAGE + " VARCHAR(256))"
+
         db?.execSQL(createTable)
 
     }
 
     //uj verzio eseten
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        db.execSQL("DROP TABLE IF EXISTS $TABLE_NAME")
-        onCreate(db)
+       //
     }
+
+
+    fun updateImage(new_url :String){
+        val db = this.writableDatabase
+        val querry = "UPDATE " + TABLE_NAME + " SET " + COL_IMAGE +" = " + new_url + " WHERE " + COL_ID + " = 1"
+        db.execSQL(querry)
+
+         }
+
 
     fun insertData(user : User){
         //ket fele database objektum van : writableDatabase, readableDatabase
