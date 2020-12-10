@@ -19,7 +19,7 @@ val COL_ID = "id"
 
 
 class DataBaseHandler(val context: Context) :
-    SQLiteOpenHelper(context, DATABASE_NAME,null, 2){
+    SQLiteOpenHelper(context, DATABASE_NAME,null, 1){
 
     override fun onCreate(db: SQLiteDatabase?) {
         //letrehozashoz szukseges sql parancs
@@ -42,12 +42,6 @@ class DataBaseHandler(val context: Context) :
     }
 
 
-    fun updateImage(new_url :String){
-        val db = this.writableDatabase
-        val querry = "UPDATE " + TABLE_NAME + " SET " + COL_IMAGE +" = " + new_url + " WHERE " + COL_ID + " = 1"
-        db.execSQL(querry)
-
-         }
 
 
     fun insertData(user : User){
@@ -59,7 +53,8 @@ class DataBaseHandler(val context: Context) :
         cv.put(COL_EMAIL,user.email)
         cv.put(COL_TELEPHONE,user.telephone)
         cv.put(COL_LOCATION,user.location)
-        //tablanev, nincs szukseg null oszlopra, es h mit
+        cv.put(COL_IMAGE,user.image)
+
         val  result =  db?.insert(TABLE_NAME, null,cv)
         if(result == (-1).toLong())//ha rowID -1 akkro hiba tortent
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show()
@@ -81,6 +76,7 @@ class DataBaseHandler(val context: Context) :
                 user.email  = result.getString(result.getColumnIndex(COL_EMAIL))
                 user.telephone = result.getString(result.getColumnIndex(COL_TELEPHONE))
                 user.location = result.getString(result.getColumnIndex(COL_LOCATION))
+                user.image = result.getString(result.getColumnIndex(COL_IMAGE))
                 list.add(user)
             }while (result.moveToNext())
             }
@@ -92,8 +88,8 @@ class DataBaseHandler(val context: Context) :
 
     fun deleteData(){
         val db = this.writableDatabase
-        val query = "DELETE FROM " +TABLE_NAME
-        db.execSQL(query)
+        db.delete(TABLE_NAME,null,null)
+        db.close()
     }
 
 }

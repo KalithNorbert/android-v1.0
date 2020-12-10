@@ -22,33 +22,30 @@ class Update : Fragment() {
         val btnUpdate = v.findViewById<Button>(R.id.btn_update)
 
         btnUpdate.setOnClickListener {
-            //ha nem uress akkor beilleszt
+
+            val db = context?.let { DataBaseHandler(context = it) }
+            val data = db?.readData()
+            var img = ""
+            if (data != null)
+            {
+                for (i in 0..(data.size -1)) {
+                    img = data.get(i).image
+                }
+            }
+
             if (et1.text.toString().isNotEmpty() &&
                 et2.text.toString().isNotEmpty() &&
                 et3.text.toString().isNotEmpty() &&
                 et4.text.toString().isNotEmpty() &&
                 et5.text.toString().isNotEmpty()
             ){
-                val db = context?.let { DataBaseHandler(context = it) }
-                val data = db?.readData()
-                var img = ""
-                if (data != null)
-                {
-                    for (i in 0..(data.size -1)) {
-                        img = data.get(i).image
-                    }
-                }
-                db?.deleteData()//delete data
                 val user = User(et1.text.toString(),et2.text.toString().toInt(),et3.text.toString(),et4.text.toString(),et5.text.toString(),img )
+
+                db!!.deleteData()//delete data
                 db?.insertData(user)//insert user data's to database
-                et1.text.clear()//editText urites
-                et2.text.clear()
-                et3.text.clear()
-                et4.text.clear()
-                et5.text.clear()
-            }else{
+            }/*else{
                 Toast.makeText(context,"Please complete all Data's ",Toast.LENGTH_SHORT).show()
-            }
+            }*/
 
         }
 

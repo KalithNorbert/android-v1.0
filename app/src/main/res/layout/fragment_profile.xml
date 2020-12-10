@@ -10,6 +10,11 @@
     <!-- TODO: Update blank fragment layout -->
 
 
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+      >
+
     <RelativeLayout
 
         android:layout_width="match_parent"
@@ -19,10 +24,11 @@
 
         <ImageView
             android:id="@+id/img_view_profile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/back1"/>
+
+           />
 
 
 
@@ -127,6 +133,7 @@
 
 
     </RelativeLayout>
+    </ScrollView>
 
 
 

@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -29,7 +30,9 @@ class Profile : Fragment() {
 
         val btnUpdate = v.findViewById<Button>(R.id.btn_update_frag)
         val btnChange = v.findViewById<Button>(R.id.btn_change)
+
         val imageV = v.findViewById<ImageView>(R.id.img_view_profile)
+
         val tv11 = v.findViewById<TextView>(R.id.tv1)
         val tv12 = v.findViewById<TextView>(R.id.tv2)
         val tv13 = v.findViewById<TextView>(R.id.tv3)
@@ -50,8 +53,10 @@ class Profile : Fragment() {
                 tv13.text = "Number: "+ data.get(i).email
                 tv14.text = "Address: "+ data.get(i).telephone
                 tv15.text = "E-mail: "+ data.get(i).location
+                Log.d("alma",data.get(i).id.toString())
+                Log.d("szoveg",id.toString())
 
-                v
+
                 val img = Uri.parse(data.get(i).image)
                 imageV!!.setImageURI(img)
             }
@@ -59,8 +64,9 @@ class Profile : Fragment() {
         }
 
         btnChange.setOnClickListener{
-            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            startActivityForResult(intent,123)
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            startActivityForResult(intent,456)
         }
 
         if (tv11.text == "Name:")
@@ -95,11 +101,39 @@ class Profile : Fragment() {
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == 123){
-            val bmp = data?.extras?.get("data") as Bitmap
-            img_view_profile.setImageBitmap(bmp)
+        val imageV = requireView().findViewById<ImageView>(R.id.img_view_profile)
 
-        }else if (requestCode == 456){
+        if(requestCode == 456){
+            imageV!!.setImageURI(data?.data)
+            val datapicture = data?.data.toString()
+
+            val db = context?.let { DataBaseHandler(context = it) }
+            var data1 = db?.readData()
+
+            Log.d("szoveg",id.toString())
+
+            if(id>1){
+                db!!.deleteData()
+            }
+
+            if (data1 != null)
+            {
+                for (i in 0..(data1.size -1)) {
+                    var id = data1.get(i).id
+                    var name = data1.get(i).name
+                    var age = data1.get(i).age
+                    var email = data1.get(i).email
+                    var telephone = data1.get(i).telephone
+                    var location = data1.get(i).location
+                    var user = User(name,age,email,telephone,location,datapicture)
+
+                   db?.insertData(user)
+                }
+            }
+
+            Log.d("akarmi",data?.data.toString())
+
+        }else if (requestCode == 123){
             img_view_change.setImageURI(data?.data)
         }
     }
