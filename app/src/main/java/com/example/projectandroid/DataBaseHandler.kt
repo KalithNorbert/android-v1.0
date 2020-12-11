@@ -54,7 +54,7 @@ class DataBaseHandler(val context: Context) :
         cv.put(COL_TELEPHONE,user.telephone)
         cv.put(COL_LOCATION,user.location)
         cv.put(COL_IMAGE,user.image)
-
+        //beszurás az adatbázisba
         val  result =  db?.insert(TABLE_NAME, null,cv)
         if(result == (-1).toLong())//ha rowID -1 akkro hiba tortent
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show()
@@ -62,6 +62,7 @@ class DataBaseHandler(val context: Context) :
             Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show()
     }
 
+    //adatok kiolvasása és visszatérítése
     fun readData() : MutableList<User>{
         val list : MutableList<User> = ArrayList()
         val db = this.readableDatabase
@@ -86,6 +87,7 @@ class DataBaseHandler(val context: Context) :
         return list
     }
 
+    //tábla üritése
     fun deleteData(){
         val db = this.writableDatabase
         db.delete(TABLE_NAME,null,null)
