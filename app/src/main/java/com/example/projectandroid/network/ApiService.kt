@@ -24,7 +24,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.logging.HttpLoggingInterceptor.Level
 import retrofit2.Call
-
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.GET
 
@@ -41,7 +40,7 @@ private val retrofit = Retrofit.Builder()
 //RestaurantApi implementalasa a @GET getProperties segitsegevel ami egy Stringet add vissza
 
 interface RestaurantsApiService{
-    @GET("realstate")
+    @GET("restaurants")
     fun getProperties():
             Call<String>
 }
@@ -52,9 +51,9 @@ object RestaurantsApi{
     }
 }
 
-/*
 
-fun RetrofitInstance {
+
+/*
     private val retrofit by lazy {
         val interceptor = HttpLoggingInterceptor()
         interceptor.setLevel(HttpLoggingInterceptor.Level.BASIC)
@@ -67,11 +66,9 @@ fun RetrofitInstance {
             .build()
     }
 
-    val api: OpenTableAPI by lazy {
-        retrofit.create(OpenTableAPI::class.java)
+    val api: RestaurantsApiService by lazy {
+        retrofit.create(RestaurantsApiService::class.java)
     }
-}
-
 */
 
 
