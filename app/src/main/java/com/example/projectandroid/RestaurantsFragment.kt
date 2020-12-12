@@ -1,5 +1,4 @@
 package com.example.projectandroid
-
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
