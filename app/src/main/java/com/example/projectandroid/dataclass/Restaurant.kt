@@ -1,4 +1,6 @@
-package com.example.projectandroid
+package com.example.projectandroid.dataclass
+
+import com.squareup.moshi.Json
 
 data class Restaurant(
     val address: String,
@@ -6,7 +8,7 @@ data class Restaurant(
     val city: String,
     val country: String,
     val id: Int,
-    val image_url: String,
+     val image_url: String,
     val lat: Double,
     val lng: Double,
     val mobile_reserve_url: String,

@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //com.example.projectandroid.Restaurant fragment betoltese
+        //com.example.projectandroid.dataclass.Restaurant fragment betoltese
         img_butt.setOnClickListener{
             img_butt.setBackgroundColor(getResources().getColor(android.R.color.holo_blue_bright))
             img_butt1.setBackgroundColor(getResources().getColor(android.R.color.holo_blue_dark))

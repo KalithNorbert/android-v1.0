@@ -1,6 +1,6 @@
-package com.example.projectandroid
+package com.example.projectandroid.dataclass
 
-import com.example.projectandroid.Restaurant
+import com.example.projectandroid.dataclass.Restaurant
 
 data class RestaurantsClass(
     val page: Int,

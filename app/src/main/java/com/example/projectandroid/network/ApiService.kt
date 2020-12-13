@@ -18,31 +18,43 @@ Retrofitehez 2 dolognak rendelkezésre kell állnia az API felépítéséhezÉ
         wbeszolgáltatásunk alap URL-je
         és egy konverter gyár ami a szerver válaszához megfelelő formátumba készíti elő az adatokat
  */
+import com.example.projectandroid.dataclass.Restaurant
+import com.example.projectandroid.dataclass.RestaurantsClass
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import kotlinx.coroutines.Deferred
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.logging.HttpLoggingInterceptor.Level
 import retrofit2.Call
-import retrofit2.converter.scalars.ScalarsConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
 private const val BASE_URL = "https://ratpark-api.imok.space/"
 
+
+//moshi JSON -> kotlin objects
+private val moshi = Moshi.Builder()
+    .add(KotlinJsonAdapterFactory())
+    .build()
+
+
 //RetrofitBuilder hasznalata a ScalarsConverter es  BASE_URL-l
-
-
 private val retrofit = Retrofit.Builder()
-    .addConverterFactory(ScalarsConverterFactory.create())
+    .addConverterFactory(MoshiConverterFactory.create(moshi))
+    .addCallAdapterFactory(CoroutineCallAdapterFactory())
     .baseUrl(BASE_URL)
     .build()
 
-//RestaurantApi implementalasa a @GET getProperties segitsegevel ami egy Stringet add vissza
+//RestaurantApi implementalasa a @GET getProperties segitsegevela
 
 interface RestaurantsApiService{
     @GET("restaurants")
     fun getProperties():
-            Call<String>
+            Deferred<RestaurantsClass>
 }
 
 object RestaurantsApi{
