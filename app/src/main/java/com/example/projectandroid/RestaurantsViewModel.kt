@@ -1,5 +1,6 @@
 package com.example.projectandroid
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,15 +11,22 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import java.lang.Exception
 
 class RestaurantsViewModel : ViewModel() {
-    private val _response = MutableLiveData<String>()
 
-    val response: LiveData<String>
-        get() = _response
+    private val _status = MutableLiveData<String>()
+
+    val status: LiveData<String>
+        get() = _status
+
+
+
+    private val _resInfo = MutableLiveData<List<Restaurant>>()
+    val resInfo: LiveData<List<Restaurant>>
+        get() = _resInfo
+
+
 
     private var job = Job()
     private val coroutineScope = CoroutineScope(job + Dispatchers.Main)
@@ -30,12 +38,18 @@ class RestaurantsViewModel : ViewModel() {
 
     private fun getRestaurantsProperties() {
         coroutineScope.launch {
-            var getInformation = RestaurantsApi.retrofitService.getProperties()
+            val getInformation = RestaurantsApi.retrofitService.getProperties()
             try {
-                var listResult = getInformation.await()
-                _response.value = "Success: ${listResult.restaurants.size}  restaurants are here"
-            }catch (t:Throwable){
-                _response.value = "Failure: "+ t.message
+              //  Log.d("Korte", "msg" )
+                val listResult = getInformation.await()
+
+                if (listResult.restaurants.isNotEmpty()){
+                    _resInfo.value = listResult.restaurants
+                }
+                 // _status.value = "Success: ${listResult.restaurants.size}  restaurants are here"
+            }catch (t: Exception){
+                _status.value = "Failure: "+ t.message
+               // Log.d("Hiba", "mdddddddsg" )
             }
         }
     }

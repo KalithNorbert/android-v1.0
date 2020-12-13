@@ -8,7 +8,7 @@ data class Restaurant(
     val city: String,
     val country: String,
     val id: Int,
-     val image_url: String,
+    @Json(name = "image_url") val img_src: String,
     val lat: Double,
     val lng: Double,
     val mobile_reserve_url: String,

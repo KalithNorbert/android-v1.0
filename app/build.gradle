@@ -68,4 +68,10 @@ dependencies {
     //retrofit coroutine adapter dependency
     implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
 
+
+    //glide
+    //decode and cache images
+    //kell hozzá a kép URL-je
+    // + imageView hogy megjelenitse a betöltött képet
+    implementation "com.github.bumptech.glide:glide:4.10.0"
 }

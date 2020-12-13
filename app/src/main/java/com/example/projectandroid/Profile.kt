@@ -53,9 +53,6 @@ class Profile : Fragment() {
                 tv13.text = "Number: "+ data.get(i).email
                 tv14.text = "Address: "+ data.get(i).telephone
                 tv15.text = "E-mail: "+ data.get(i).location
-                Log.d("alma",data.get(i).id.toString())
-                Log.d("szoveg",id.toString())
-
 
                 val img = Uri.parse(data.get(i).image)
                 imageV!!.setImageURI(img)
@@ -109,8 +106,6 @@ class Profile : Fragment() {
 
             val db = context?.let { DataBaseHandler(context = it) }
             var data1 = db?.readData()
-
-            Log.d("szoveg",id.toString())
 
             if(id>1){
                 db!!.deleteData()
