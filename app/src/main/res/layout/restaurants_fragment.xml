@@ -11,20 +11,15 @@
             name="viewModel"
             type="com.example.projectandroid.RestaurantsViewModel" />
     </data>
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.example.projectandroid.MainActivity">
 
-
-
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
+            android:text="@{viewModel.resInfo.city}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintLeft_toRightOf="parent"
@@ -38,27 +33,15 @@
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"
             android:padding="2dp"
-            tools:src="@tools:sample/backgrounds/scenic"
-
-            app:imageUrl="@{viewModel.resInfo.img_src}"
-
+            app:img_src="@{viewModel.resInfo.img_src}"
             tools:ignore="MissingConstraints" />
+
         <!--
            app:imageUrl="@{viewModel.resInfo.img_src}"
            -->
 
 
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@{viewModel.status}"
-
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintLeft_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

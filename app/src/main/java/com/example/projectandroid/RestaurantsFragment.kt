@@ -33,11 +33,11 @@ class RestaurantsFragment : Fragment() {
 
     }
 
-
+/*
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val viewModel = of(this).get(RestaurantsViewModel::class.java)
 
-    }
+    }*/
 
 }
