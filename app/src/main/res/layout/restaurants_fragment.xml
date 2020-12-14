@@ -24,13 +24,30 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@{viewModel.resInfo.get(1).img_src}"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintLeft_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />
+
+        <ImageView
+            android:id="@+id/restaurants_image"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:padding="2dp"
+            tools:src="@tools:sample/backgrounds/scenic"
+
+            app:imageUrl="@{viewModel.resInfo.img_src}"
+
+            tools:ignore="MissingConstraints" />
+        <!--
+           app:imageUrl="@{viewModel.resInfo.img_src}"
+           -->
+
+
 
         <TextView
             android:layout_width="match_parent"

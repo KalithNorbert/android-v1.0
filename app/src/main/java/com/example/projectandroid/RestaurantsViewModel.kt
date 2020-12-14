@@ -22,8 +22,8 @@ class RestaurantsViewModel : ViewModel() {
 
 
 
-    private val _resInfo = MutableLiveData<List<Restaurant>>()
-    val resInfo: LiveData<List<Restaurant>>
+    private val _resInfo = MutableLiveData<Restaurant>()
+    val resInfo: LiveData<Restaurant>
         get() = _resInfo
 
 
@@ -44,7 +44,7 @@ class RestaurantsViewModel : ViewModel() {
                 val listResult = getInformation.await()
 
                 if (listResult.restaurants.isNotEmpty()){
-                    _resInfo.value = listResult.restaurants
+                    _resInfo.value = listResult.restaurants[0]
                 }
                  // _status.value = "Success: ${listResult.restaurants.size}  restaurants are here"
             }catch (t: Exception){
