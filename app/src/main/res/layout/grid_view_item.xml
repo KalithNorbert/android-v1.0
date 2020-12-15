@@ -7,8 +7,8 @@
 
     <data>
         <variable
-            name="viewModel"
-            type="com.example.projectandroid.RestaurantsViewModel" />
+            name="properties"
+            type="com.example.projectandroid.dataclass.Restaurant" />
     </data>
 
 
@@ -19,7 +19,7 @@
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"
         android:padding="2dp"
-
+        app:img_src="@{properties.img_src}"
         tools:src="@tools:sample/backgrounds/scenic"/>
         <!--
         app:imageUrl="@{viewModel.resInfo.get(1).img_src}"

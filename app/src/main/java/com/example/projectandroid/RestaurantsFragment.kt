@@ -27,6 +27,9 @@ class RestaurantsFragment : Fragment() {
         binding.setLifecycleOwner(this)
 
         binding.viewModel = viewModel
+
+        binding.photosGrid.adapter = PhotoAdapter()
+
         setHasOptionsMenu(true)
 
         return binding.root

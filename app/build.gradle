@@ -7,8 +7,9 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.1"
 
+
     buildFeatures {
-        dataBinding = true
+        dataBinding  true
     }
 
     defaultConfig {
@@ -54,8 +55,11 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
 
+    implementation "com.android.support:recyclerview-v7:30.0.0"
+
     //Retrofit
     implementation "com.squareup.retrofit2:retrofit:2.9.0" //retrofit
+    implementation "com.squareup.retrofit2:converter-scalars:2.9.0"
 
     //skalar konverter = JSON eredmenyt string kent adjuk vissza
     //a konyvtarak egyutt mukodnek

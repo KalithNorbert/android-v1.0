@@ -16,24 +16,20 @@
         android:layout_height="match_parent"
         tools:context="com.example.projectandroid.MainActivity">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@{viewModel.resInfo.city}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintLeft_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
 
-        <ImageView
-            android:id="@+id/restaurants_image"
-            android:layout_width="match_parent"
-            android:layout_height="170dp"
-            android:scaleType="centerCrop"
-            android:adjustViewBounds="true"
-            android:padding="2dp"
-            app:img_src="@{viewModel.resInfo.img_src}"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/photos_grid"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="10dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+
+            app:listData="@{viewModel.resInfo}"
+
+            tools:itemCount="16"
+            tools:listitem="@layout/grid_view_item"
+
             tools:ignore="MissingConstraints" />
 
         <!--
