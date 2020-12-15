@@ -21,16 +21,17 @@
             android:id="@+id/photos_grid"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:padding="10dp"
+            android:padding="6dp"
+            android:clipToPadding="false"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="2"
-
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:listData="@{viewModel.resInfo}"
-
+            app:spanCount="1"
             tools:itemCount="16"
-            tools:listitem="@layout/grid_view_item"
-
-            tools:ignore="MissingConstraints" />
+            tools:listitem="@layout/grid_view_item" />
 
         <!--
            app:imageUrl="@{viewModel.resInfo.img_src}"
