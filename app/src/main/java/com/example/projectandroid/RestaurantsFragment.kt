@@ -38,7 +38,7 @@ class RestaurantsFragment : Fragment() {
             viewModel.displayRestaurantDetails(it)
         })
 
-        viewModel.navigateSelectedRestaurant.observe(this, Observer{
+        viewModel.navigateSelectedRestaurant.observe(this, Observer {
             if ( null != it){
                 this.findNavController().navigate(RestaurantsFragmentDirections.actionShowDatas(it))
                 viewModel.displayRestaurantDetailsComplete()

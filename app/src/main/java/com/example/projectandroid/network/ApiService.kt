@@ -53,8 +53,8 @@ private val retrofit = Retrofit.Builder()
 
 interface RestaurantsApiService{
     @GET("restaurants")
-    fun getProperties():
-            List<RestaurantsClass>
+     fun getProperties():
+            Deferred<RestaurantsClass>
 }
 
 object RestaurantsApi{
