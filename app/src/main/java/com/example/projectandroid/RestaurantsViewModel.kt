@@ -12,6 +12,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import java.lang.Exception
+//ha error van
+enum class APIStatus{ERROR, DONE}
 
 class RestaurantsViewModel : ViewModel() {
 
@@ -26,6 +28,9 @@ class RestaurantsViewModel : ViewModel() {
     val resInfo: LiveData<List<Restaurant>>
         get() = _resInfo
 
+    private val _navigateSelectedRestaurant = MutableLiveData<Restaurant>()
+    val navigateSelectedRestaurant: LiveData<Restaurant>
+        get() = _navigateSelectedRestaurant
 
 
     private var job = Job()
@@ -57,6 +62,14 @@ class RestaurantsViewModel : ViewModel() {
     override fun onCleared() {
         super.onCleared()
         job.cancel()
+    }
+
+    fun displayRestaurantDetails(restaurant: Restaurant){
+        _navigateSelectedRestaurant.value = restaurant
+    }
+
+    fun displayRestaurantDetailsComplete(){
+        _navigateSelectedRestaurant.value = null
     }
 }
 

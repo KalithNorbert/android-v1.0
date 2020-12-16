@@ -33,14 +33,6 @@
             tools:itemCount="16"
             tools:listitem="@layout/grid_view_item" />
 
-        <!--
-           app:imageUrl="@{viewModel.resInfo.img_src}"
-           -->
-
-
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

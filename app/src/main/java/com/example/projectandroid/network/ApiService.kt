@@ -54,7 +54,7 @@ private val retrofit = Retrofit.Builder()
 interface RestaurantsApiService{
     @GET("restaurants")
     fun getProperties():
-            Deferred<RestaurantsClass>
+            List<RestaurantsClass>
 }
 
 object RestaurantsApi{
@@ -63,25 +63,6 @@ object RestaurantsApi{
     }
 }
 
-
-
-/*
-    private val retrofit by lazy {
-        val interceptor = HttpLoggingInterceptor()
-        interceptor.setLevel(HttpLoggingInterceptor.Level.BASIC)
-        val okHttp = OkHttpClient.Builder().addInterceptor(interceptor).build()
-
-        Retrofit.Builder()
-            .baseUrl("https://ratpark-api.imok.space/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(okHttp)
-            .build()
-    }
-
-    val api: RestaurantsApiService by lazy {
-        retrofit.create(RestaurantsApiService::class.java)
-    }
-*/
 
 
 

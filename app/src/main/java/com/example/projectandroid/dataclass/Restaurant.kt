@@ -1,6 +1,9 @@
 package com.example.projectandroid.dataclass
 
+import android.os.Parcelable
 import com.squareup.moshi.Json
+import kotlinx.android.parcel.Parcelize
+
 
 data class Restaurant(
     val address: String,
