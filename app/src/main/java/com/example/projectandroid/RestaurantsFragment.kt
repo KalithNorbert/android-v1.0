@@ -28,9 +28,10 @@ class RestaurantsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+
         val binding = RestaurantsFragmentBinding.inflate(inflater)
 
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
 
         binding.viewModel = viewModel
 

@@ -2,6 +2,8 @@ package com.example.projectandroid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -9,6 +11,7 @@ class MainActivity : AppCompatActivity() {
         setTheme(R.style.Splash) //loading splash screen
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         //com.example.projectandroid.dataclass.Restaurant fragment betoltese
         img_butt.setOnClickListener{
@@ -19,7 +22,7 @@ class MainActivity : AppCompatActivity() {
             val transaction = manager.beginTransaction()
             //R.id.fragment - melyik fargmensbe
             //firstFragment - mit toltok be
-            transaction.replace(R.id.fragment,firstFragment)
+            transaction.replace(R.id.nav_host_fragment,firstFragment)
             transaction.addToBackStack(null)
             transaction.commit()
 
@@ -32,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             val secondFragment = RestaurantsFragment()
             val manager = supportFragmentManager
             val transaction = manager.beginTransaction()
-            transaction.replace(R.id.fragment,secondFragment)
+            transaction.replace(R.id.nav_host_fragment,secondFragment)
             transaction.addToBackStack(null)
             transaction.commit()
         }

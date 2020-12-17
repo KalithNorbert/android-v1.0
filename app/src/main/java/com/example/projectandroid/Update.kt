@@ -54,7 +54,7 @@ class Update : Fragment() {
             val profile = Profile()
             val manager = fragmentManager
             val transaction = manager?.beginTransaction()
-            transaction?.replace(com.example.projectandroid.R.id.fragment,profile)
+            transaction?.replace(com.example.projectandroid.R.id.nav_host_fragment,profile)
             transaction?.addToBackStack(null)
             transaction?.commit()
         }
