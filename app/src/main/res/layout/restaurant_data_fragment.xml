@@ -31,6 +31,15 @@
                 tools:src="@tools:sample/backgrounds/scenic"
                />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_favorite"
+                android:text="Add to favorite"
+                android:layout_toEndOf="@id/main_photo_image"
+
+                tools:ignore="MissingConstraints" />
+
             <TextView
                 android:id="@+id/restaurant_name"
                 android:layout_width="wrap_content"
@@ -39,7 +48,7 @@
 
                 android:text="@{viewModel.selectedRestaurant.name}"
                 android:textColor="#de000000"
-                android:textSize="39sp"
+                android:textSize="30sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/main_photo_image"
                 tools:text="To Rent" />
@@ -51,10 +60,65 @@
                 android:layout_marginTop="8dp"
                 android:text="@{viewModel.selectedRestaurant.city}"
                 android:textColor="#de000000"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/restaurant_name"
                />
+            <TextView
+                android:id="@+id/restaurant_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{viewModel.selectedRestaurant.state}"
+                android:textColor="#de000000"
+                android:textSize="25sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/restaurant_city"
+                />
+            <TextView
+                android:id="@+id/restaurant_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{viewModel.selectedRestaurant.address}"
+                android:textColor="#de000000"
+                android:textSize="25sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/restaurant_state"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="20dp"
+                android:background="@android:color/holo_blue_bright"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/restaurant_address"
+                >
+
+            <ImageButton
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_google_Maps"
+                android:src="@drawable/google_map"
+                android:background="@android:color/transparent"
+                />
+            <ImageButton
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_telephone"
+                android:src="@drawable/phone_icon"
+                android:background="@android:color/transparent"
+
+
+                />
+
+
+            </LinearLayout>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

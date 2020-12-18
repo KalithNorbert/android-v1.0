@@ -50,6 +50,7 @@ class RestaurantsViewModel : ViewModel() {
 
                 if (listResult.restaurants.isNotEmpty()){
                     _resInfo.value = listResult.restaurants
+
                 }
                  // _status.value = "Success: ${listResult.restaurants.size}  restaurants are here"
             }catch (t: Exception){

@@ -40,10 +40,6 @@ class DataBaseHandler(val context: Context) :
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
        //
     }
-
-
-
-
     fun insertData(user : User){
         //ket fele database objektum van : writableDatabase, readableDatabase
         val db = this.writableDatabase

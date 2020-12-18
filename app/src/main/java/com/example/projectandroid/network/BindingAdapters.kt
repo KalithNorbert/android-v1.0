@@ -20,6 +20,9 @@ fun bindRecyclerView(recyclerView: RecyclerView, data:List<Restaurant>?) {
 }
 
 
+
+
+
 // akkor hajtodik v;gre amikor egz XML objektum rendelkezik az img_src attributummal
 @BindingAdapter("img_src")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
