@@ -1,5 +1,6 @@
 package com.example.projectandroid
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
@@ -32,12 +33,9 @@ class MainActivity : AppCompatActivity() {
         img_butt1.setOnClickListener {
             img_butt.setBackgroundColor(getResources().getColor(android.R.color.holo_blue_dark))
             img_butt1.setBackgroundColor(getResources().getColor(android.R.color.holo_blue_bright))
-            val secondFragment = RestaurantsFragment()
-            val manager = supportFragmentManager
-            val transaction = manager.beginTransaction()
-            transaction.replace(R.id.nav_host_fragment,secondFragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(intent)
         }
 
 

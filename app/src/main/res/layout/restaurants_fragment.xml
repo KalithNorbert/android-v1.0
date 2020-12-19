@@ -31,7 +31,11 @@
             tools:itemCount="16"
             tools:listitem="@layout/grid_view_item" />
 
-
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ALMA"
+            tools:ignore="MissingConstraints" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

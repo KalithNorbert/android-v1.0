@@ -3,18 +3,19 @@ package com.example.projectandroid.datas
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
-import com.example.projectandroid.DataBaseHandler
 import com.example.projectandroid.databinding.RestaurantDataFragmentBinding
 import com.example.projectandroid.favorite.FavoriteDataBase
 import com.example.projectandroid.favorite.RestaurantFavorite
 import kotlinx.android.synthetic.main.restaurant_data_fragment.*
+
 
 class RestaurantDataFragment : Fragment() {
 
@@ -29,7 +30,8 @@ class RestaurantDataFragment : Fragment() {
         val restaurantDetails = RestaurantDataFragmentArgs.fromBundle(arguments!!).selectedRestaurant
         val viewModelFactory = RestaurantDataViewModelFactory(restaurantDetails, application)
         binding.viewModel = ViewModelProvider(
-            this, viewModelFactory).get(RestaurantDataViewMode::class.java)
+            this, viewModelFactory
+        ).get(RestaurantDataViewMode::class.java)
 
 
 
@@ -45,6 +47,7 @@ class RestaurantDataFragment : Fragment() {
 
 
 
+        //Add and remove to favorite restaurants
         binding.btnFavorite.setOnClickListener(){
             if (binding.btnFavorite.text == "Add to favorite")
             {
@@ -65,10 +68,17 @@ class RestaurantDataFragment : Fragment() {
                     restaurantDetails.price,
                     restaurantDetails.reserve_url,
                     restaurantDetails.state
-                    )
+                )
 
                 db?.insertDataFavorite(newFavorite)
                 btn_favorite.setBackgroundColor(getResources().getColor(android.R.color.holo_blue_bright))
+
+               //reload fragment to see changes
+                val ft: FragmentTransaction = fragmentManager!!.beginTransaction()
+                if (Build.VERSION.SDK_INT >= 26) {
+                    ft.setReorderingAllowed(false)
+                }
+                ft.detach(this).attach(this).commit()
             }
 
             if (binding.btnFavorite.text == "Remove to Favorite")
@@ -76,6 +86,14 @@ class RestaurantDataFragment : Fragment() {
                 val db = context?.let { FavoriteDataBase(context = it) }
                 db!!.deleteDataFavorite(restaurantDetails.id)
                 btn_favorite.setBackgroundColor(getResources().getColor(android.R.color.holo_red_dark))
+
+                //reload fragment
+                val ft: FragmentTransaction = fragmentManager!!.beginTransaction()
+                if (Build.VERSION.SDK_INT >= 26) {
+                    ft.setReorderingAllowed(false)
+                }
+                ft.detach(this).attach(this).commit()
+
             }
 
         }
