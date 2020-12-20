@@ -19,25 +19,41 @@
             android:id="@+id/photos_grid"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:padding="20dp"
             android:clipToPadding="false"
+            android:padding="20dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
             app:listData="@{viewModel.resInfo}"
             app:spanCount="1"
             tools:itemCount="16"
             tools:listitem="@layout/grid_view_item" />
 
+
+<!--
         <Button
+            android:id="@+id/btn_prev"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ALMA"
-            tools:ignore="MissingConstraints" />
+            android:text=""
+            tools:ignore="MissingConstraints"
+            />
 
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            tools:ignore="MissingConstraints"
+            app:layout_constraintTop_toBottomOf="@+id/btn_prev"/>
 
+-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

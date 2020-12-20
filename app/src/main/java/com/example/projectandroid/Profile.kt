@@ -83,6 +83,8 @@ class Profile : Fragment() {
             transaction?.commit()
         }
 
+
+
 /*
         btnChange.setOnClickListener {
             val UpdateFragment = Change()
@@ -126,7 +128,7 @@ class Profile : Fragment() {
                 }
             }
 
-            Log.d("akarmi",data?.data.toString())
+           // Log.d("akarmi",data?.data.toString())
 
         }else if (requestCode == 123){
             img_view_change.setImageURI(data?.data)

@@ -4,13 +4,11 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.projectandroid.dataclass.Restaurant
 import com.example.projectandroid.dataclass.RestaurantsClass
 import com.example.projectandroid.network.RestaurantsApi
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import java.lang.Exception
 //ha error van
 enum class APIStatus{ERROR, DONE}
@@ -42,21 +40,24 @@ class RestaurantsViewModel : ViewModel() {
     }
 
     private fun getRestaurantsProperties() {
-        coroutineScope.launch {
+        viewModelScope.launch {
             val getInformation = RestaurantsApi.retrofitService.getProperties()
+
             try {
-              //  Log.d("Korte", "msg" )
-                val listResult = getInformation.await()
 
-                if (listResult.restaurants.isNotEmpty()){
-                    _resInfo.value = listResult.restaurants
+               // val listResult = getInformation.await()
 
-                }
+                   val alma = async { getInformation.page }
+                    _resInfo.value = getInformation.restaurants
+
+
                  // _status.value = "Success: ${listResult.restaurants.size}  restaurants are here"
             }catch (t: Exception){
                 _status.value = "Failure: "+ t.message
                // Log.d("Hiba", "mdddddddsg" )
             }
+
+
         }
     }
 

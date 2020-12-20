@@ -73,7 +73,7 @@ class FavoriteDataBase(val context: Context) :
         cv.put(COL_AREA, restaurantfavorite.area)
         cv.put(COL_CITY, restaurantfavorite.city)
         cv.put(COL_COUNTRY, restaurantfavorite.country)
-        cv.put(COL_IMAGE, restaurantfavorite.imageUrl)
+        cv.put(COL_IMAGE, restaurantfavorite.img_src)
         cv.put(COL_LAT, restaurantfavorite.lat)
         cv.put(COL_LNG, restaurantfavorite.lng)
         cv.put(COL_MOBILE_RESERVE_URL, restaurantfavorite.mobileReserveUrl)
@@ -105,7 +105,7 @@ class FavoriteDataBase(val context: Context) :
                 restaurantfavorite.area = result.getString(result.getColumnIndex(COL_AREA))
                 restaurantfavorite.city  = result.getString(result.getColumnIndex(COL_CITY))
                 restaurantfavorite.country = result.getString(result.getColumnIndex(COL_COUNTRY))
-                restaurantfavorite.imageUrl = result.getString(result.getColumnIndex(COL_IMAGE))
+                restaurantfavorite.img_src = result.getString(result.getColumnIndex(COL_IMAGE))
                 restaurantfavorite.lat = result.getString(result.getColumnIndex(COL_LAT)).toDouble()
                 restaurantfavorite.lng = result.getString(result.getColumnIndex(COL_LNG)).toDouble()
                 restaurantfavorite.mobileReserveUrl = result.getString(result.getColumnIndex(COL_MOBILE_RESERVE_URL))
@@ -122,6 +122,19 @@ class FavoriteDataBase(val context: Context) :
         result.close()
         db.close()
         return list
+    }
+
+
+
+
+
+    fun updateFavorites(num:Int,str:String){
+
+        val db = this.writableDatabase
+        val cv = ContentValues()
+        cv.put(COL_IMAGE,str)
+        db.update(TABLE_NAME,cv, "$COL_ID = $num", arrayOf())
+        db.close()
     }
 
     //tábla üritése
@@ -144,6 +157,22 @@ class FavoriteDataBase(val context: Context) :
             }while (result.moveToNext())
         }
         return false
+    }
+
+
+
+    fun favoriteId(num: Int): Int {
+        val db = this.readableDatabase
+        val query = "SELECT * FROM " + TABLE_NAME
+        val result = db.rawQuery(query,null)
+        if(result.moveToFirst()){
+            do{
+                if (num == result.getString(result.getColumnIndex(com.example.projectandroid.favorite.COL_ID)).toInt()){
+                    return result.getString(result.getColumnIndex(com.example.projectandroid.favorite.COL_DBID)).toInt()
+                }
+            }while (result.moveToNext())
+        }
+        return 1
     }
 
 }

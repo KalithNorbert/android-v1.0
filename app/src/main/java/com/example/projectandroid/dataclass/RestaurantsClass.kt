@@ -6,7 +6,7 @@ import kotlinx.android.parcel.Parcelize
 
 
 data class RestaurantsClass(
-    val page: Int,
+    var page: Int,
     val per_page: String,
     val restaurants: List<Restaurant>,
     val total_entries: Int

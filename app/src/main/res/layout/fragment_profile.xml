@@ -7,7 +7,7 @@
     android:background="@android:color/holo_blue_bright"
     tools:context=".Profile">
 
-    <!-- TODO: Update blank fragment layout -->
+
 
 
     <ScrollView
@@ -107,11 +107,11 @@
                 android:id="@+id/btn_update_frag"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:color/holo_blue_dark"
-                android:text="Update Profile"
-                android:padding="10dp"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
+                android:background="@android:color/holo_blue_dark"
+                android:padding="5dp"
+                android:text="Update Profile"
 
                 />
 
@@ -122,14 +122,16 @@
                 android:background="@android:color/holo_blue_dark"
                 android:text="Change Pic"
                 android:layout_weight="1"
-                android:padding="10dp"
-                android:layout_margin="10dp"
+                android:padding="5dp"
+                android:layout_margin="5dp"
 
                 />
 
 
 
+
         </LinearLayout>
+
 
 
     </RelativeLayout>

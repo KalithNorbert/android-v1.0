@@ -53,8 +53,9 @@ private val retrofit = Retrofit.Builder()
 
 interface RestaurantsApiService{
     @GET("restaurants")
-     fun getProperties():
-            Deferred<RestaurantsClass>
+     suspend fun getProperties():  RestaurantsClass
+
+
 }
 
 object RestaurantsApi{
