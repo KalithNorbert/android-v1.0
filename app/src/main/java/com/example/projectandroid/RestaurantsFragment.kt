@@ -30,6 +30,7 @@ import kotlinx.coroutines.launch
 class RestaurantsFragment : Fragment() {
 
 
+    //berakja a ViewModelbe a RestaurantViewModelt
     private val viewModel: RestaurantsViewModel by lazy {
         ViewModelProvider(this).get(RestaurantsViewModel::class.java)
     }
@@ -40,19 +41,23 @@ class RestaurantsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-
-
-
+        //ráteszi a fragmentre a kinézetet
         val binding = RestaurantsFragmentBinding.inflate(inflater)
 
         binding.lifecycleOwner = this
 
         binding.viewModel = viewModel
 
+        //a photoGrid adapter onclickListener fgv átadja azt a Restaurantoto amire ráklikkeltem
+        //ezt a displayRestaurantDetails megkapja
         binding.photosGrid.adapter = PhotoAdapter(PhotoAdapter.OnClickListener {
-            viewModel.displayRestaurantDetails(it)
+            viewModel.displayRestaurantDetails(it)//it restaurant típúsu lesz az lessz amire ráklikeeltem
         })
 
+
+        ///observe figyelem a változást
+        //benavigál a kiválasztott restaurantba
+        //ha az eventnek vége van akkor  -null-  értéket ad ezért az observe nem ellenörzi mig nem kap új értéket
         viewModel.navigateSelectedRestaurant.observe(this, Observer {
             if ( null != it){
                 this.findNavController().navigate(RestaurantsFragmentDirections.actionShowDatas(it))
@@ -110,11 +115,11 @@ class RestaurantsFragment : Fragment() {
 */
 
 
-
+        //a navigation bárok miatt szükséges
         setHasOptionsMenu(true)
 
+        //az inflatert téríti vissza
         return binding.root
-
     }
 
     private fun reload() {

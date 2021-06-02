@@ -58,6 +58,7 @@ interface RestaurantsApiService{
 
 }
 
+//ez kéri le az adatainkat az API-ból
 object RestaurantsApi{
     val retrofitService : RestaurantsApiService by lazy {
         retrofit.create(RestaurantsApiService::class.java)

@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.projectandroid.dataclass.Restaurant
 import com.example.projectandroid.dataclass.RestaurantsClass
 
+
+//úgy tudunk értéket átadni a ViewModelnek
 class RestaurantDataViewModelFactory (
     private val restaurant: Restaurant,
     private val application: Application) : ViewModelProvider.Factory {

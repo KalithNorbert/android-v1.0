@@ -19,10 +19,6 @@ class RestaurantDataViewMode(restaurant: Restaurant, app: Application):AndroidVi
     val selectedRestaurant: LiveData<Restaurant>
         get() = _selectedRestaurant
 
-
-
-
-
     init {
         _selectedRestaurant.value = restaurant
     }

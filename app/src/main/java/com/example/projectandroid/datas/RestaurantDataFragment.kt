@@ -33,15 +33,17 @@ class RestaurantDataFragment : Fragment() {
     ): View? {
         val application = requireNotNull(activity).application
         val binding = RestaurantDataFragmentBinding.inflate(inflater)
+
         binding.lifecycleOwner = this
+
+        //kiveszi a bundleből a választot adatot
         val restaurantDetails = RestaurantDataFragmentArgs.fromBundle(arguments!!).selectedRestaurant
+
+        //visszajelzést kap, hogy létezike a lekért objektum
         val viewModelFactory = RestaurantDataViewModelFactory(restaurantDetails, application)
-        binding.viewModel = ViewModelProvider(
-            this, viewModelFactory
-        ).get(RestaurantDataViewMode::class.java)
 
-
-
+        //melyik viewModel kell nekem
+        binding.viewModel = ViewModelProvider(this, viewModelFactory).get(RestaurantDataViewMode::class.java)
 
 
         val db = context?.let { FavoriteDataBase(context = it) }

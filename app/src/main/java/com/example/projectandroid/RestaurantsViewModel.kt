@@ -10,7 +10,7 @@ import com.example.projectandroid.dataclass.RestaurantsClass
 import com.example.projectandroid.network.RestaurantsApi
 import kotlinx.coroutines.*
 import java.lang.Exception
-//ha error van
+
 enum class APIStatus{ERROR, DONE}
 
 class RestaurantsViewModel : ViewModel() {
@@ -22,6 +22,8 @@ class RestaurantsViewModel : ViewModel() {
 
 
 
+    //viewmodelben mindig private MutableLiveData
+    //kivül a LiveDtata továbbítsa de nem lehet módosítani mert ő is csak megkapja
     private val _resInfo = MutableLiveData<List<Restaurant>>()
     val resInfo: LiveData<List<Restaurant>>
         get() = _resInfo
@@ -32,19 +34,24 @@ class RestaurantsViewModel : ViewModel() {
 
 
     private var job = Job()
-    private val coroutineScope = CoroutineScope(job + Dispatchers.Main)
+    private val coroutineScope = CoroutineScope(job + Dispatchers.Main)//milyen dispatcheren fusson le
 
 
+    //a class constructora
     init {
         getRestaurantsProperties()
     }
 
+    //Éttermek lekérése az APIból
+    //status frissítése
     private fun getRestaurantsProperties() {
         viewModelScope.launch {
+            //APIService -> meghivja a retrofitService.getPropertist
             val getInformation = RestaurantsApi.retrofitService.getProperties()
 
             try {
 
+                // adigg kell vár amig meg nem kapja az adatokat
                // val listResult = getInformation.await()
 
                    val alma = async { getInformation.page }
@@ -61,15 +68,19 @@ class RestaurantsViewModel : ViewModel() {
         }
     }
 
+    //amikor a háttérbe storul az app akkor leállítsa a corutint
     override fun onCleared() {
         super.onCleared()
         job.cancel()
     }
 
+    //amikor ráklikkelünk egy restaurantra akkor átálitsa  a
+    // _navigateToSelectedRestaurant MutableLivedata értékét a kiválasztot Restaurantra
     fun displayRestaurantDetails(restaurant: Restaurant){
         _navigateSelectedRestaurant.value = restaurant
     }
 
+    //eltünteti ha már nem vagyok rajta
     fun displayRestaurantDetailsComplete(){
         _navigateSelectedRestaurant.value = null
     }
